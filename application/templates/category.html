@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+{% include 'logo.html' %}
+{% include 'header.html' %}
+{% include 'navigation.html' %}
+
+<div class="w3-row">
+    <div class="w3-half w3-container w3-section">
+        <a class="w3-button w3-block w3-border w3-round w3-light-grey" href="add_category">Add Category</a>
+    </div>
+    <div class="w3-half w3-container w3-section">
+        <input class="w3-input w3-border w3-round w3-light-grey w3-center" type="text" name="search_category"
+               id="search_category" placeholder=" &#128270; Search Category &#128269; ">
+    </div>
+</div>
+
+<div class="w3-responsive w3-container">
+    <table class="w3-table-all">
+        <tr class="w3-blue">
+            <th>Category Name</th>
+            <th>Category Type</th>
+            <th>Action</th>
+        </tr>
+        {% for category in categories %}
+        <tr>
+            <td>{{ category.name }}</td>
+            <td>{{ category.type.upper() }}</td>
+            <td>{{ category.id }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

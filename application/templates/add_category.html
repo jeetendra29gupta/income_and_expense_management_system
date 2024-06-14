@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+{% include 'logo.html' %}
+{% include 'header.html' %}
+{% include 'navigation.html' %}
+
+<div class="w3-panel w3-center">
+    <h2>Add Category</h2>
+</div>
+<form action="/save_category" method="post" class="w3-container" style="width: 50%;margin: 0 auto;">
+    <input type="text" name="name" placeholder="Enter Category Name" required
+           class="w3-input w3-border w3-round w3-light-grey w3-section">
+    <select name="type" class="w3-select w3-border w3-round w3-light-grey w3-section">
+        <option value="" disabled selected>Choose Category Type</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+    </select>
+    <button type="submit" class="w3-button w3-block w3-border w3-round w3-light-grey w3-section">Add Category</button>
+</form>
+
+{% endblock %}
